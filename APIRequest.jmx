@@ -1,0 +1,1618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Wrisk Load Test Plan- API" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Retrieve Quote Thread" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;WR00013655&quot;,&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;postcode&quot;:&quot;Br1 3Bn&quot;,&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00+00:00&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/quote/retrieve</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer _03b6Y0cK-fDGRgXXQC9BKPpkJpRd7RIfLVxel-RFHxNrldXaH-1pMOlulksRUCIoKcUjKqbyxLQo97YJU9IimRRrBa_5kIITe9DKfVbsWS_67cXCgmEB8KK8Q-FV_a1nt6AozlCy4UJO66EVd4SKGjjIywhQ1p9lytbEjf3TK3oZZbinHBmzz-KQuorJVM3FCYXEDBtcxO95DwPrDGzGihE2IZrPscmOnMXJIaYmLsFZrDvEDiAp_3IWfMUL5ZKqMH4JaDyu96VWzGUYcxPKaKT97NVdRTOCNF1ChVkJTHzEA7XOYmdZ5m-bV8tfzVN2r-k2KkATcGDCbTf2Xm5qdBuWaU-477Q5VjCyiFnRgPRwxU8rLCWccw34SmIumLW</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Create Quote Thread" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Quote" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;primaryVoluntaryExcess&quot;:0,&quot;isRenewal&quot;:false,&quot;isMta&quot;:false,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;18&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00Z&quot;,&quot;email&quot;:&quot;fgfd@fggd.com&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Married&quot;,&quot;description&quot;:&quot;Married&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mr&quot;,&quot;description&quot;:&quot;Mr&quot;,&quot;ogiId&quot;:&quot;Mr&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;8&quot;,&quot;description&quot;:&quot;Up to 7 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:false},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07465424242&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;13&quot;,&quot;description&quot;:&quot;13 Years&quot;,&quot;dE_SEQ&quot;:12},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;DM_PRODUCT&quot;:&quot;MV&quot;,&quot;DM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;DE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;DE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:2002,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;DM_PRODUCT&quot;:&quot;MV&quot;,&quot;DM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;DE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;DE_SEQ&quot;:0}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;}},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{},&quot;additionalDirectDebitDetails&quot;:{},&quot;editMode&quot;:true,&quot;relationship&quot;:null,&quot;otherName&quot;:&quot;&quot;,&quot;desiredStartDate&quot;:&quot;2018-09-02T00:00:00+01:00&quot;}}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/quote</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Premium Request" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;5b855f2606a0f91f3ce5512e&quot;,&quot;quoteReferenceId&quot;:&quot;WR00013695&quot;,&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;startedDate&quot;:&quot;2018-08-28T14:41:42.388Z&quot;,&quot;updatedDate&quot;:&quot;2018-08-28T14:43:17.207Z&quot;,&quot;quoteStatusValue&quot;:5,&quot;status&quot;:2,&quot;isQuoteActive&quot;:true,&quot;ownerId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;actingUserId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;isExternal&quot;:false,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;isRenewal&quot;:false,&quot;otherName&quot;:&quot;&quot;,&quot;primaryVoluntaryExcess&quot;:0,&quot;desiredStartDate&quot;:&quot;2018-09-01T23:00:00Z&quot;,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;18&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00Z&quot;,&quot;email&quot;:&quot;fgfd@fggd.com&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Married&quot;,&quot;description&quot;:&quot;Married&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mr&quot;,&quot;description&quot;:&quot;Mr&quot;,&quot;ogiId&quot;:&quot;Mr&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;8&quot;,&quot;description&quot;:&quot;Up to 7 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:false},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07465424242&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;13&quot;,&quot;description&quot;:&quot;13 Years&quot;,&quot;dE_SEQ&quot;:12},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;dE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:2002,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false,&quot;totalVehiclesInHouseHold&quot;:&quot;2&quot;,&quot;criminalConvictionYN&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;dE_SEQ&quot;:0},&quot;policyNoClaimsBonusProtected&quot;:false,&quot;policyNoClaimsBonus&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;NCB&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:13,&quot;description&quot;:&quot;13 years&quot;,&quot;dE_SEQ&quot;:13}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;otherVehiclesAccessYN&quot;:false,&quot;propertyOwnership&quot;:false,&quot;claimDetails&quot;:[],&quot;convictionDetails&quot;:[],&quot;claimDetailsAnswered&quot;:true,&quot;convictionDetailsAnswered&quot;:true,&quot;namedDrivers&quot;:[],&quot;namedDriversAnswered&quot;:true},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{}},&quot;quoteData&quot;:{&quot;prices&quot;:[],&quot;acceptances&quot;:{&quot;acceptBestKnowledge&quot;:false,&quot;acceptCompletedHonestly&quot;:false,&quot;acceptTermsAndConditions&quot;:false,&quot;acceptExcess&quot;:false,&quot;noMarketing&quot;:false},&quot;options&quot;:[],&quot;quoteResults&quot;:[],&quot;invalidQuoteResults&quot;:[],&quot;expirationDate&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;selectedPriceIndex&quot;:0},&quot;batchRuns&quot;:[],&quot;backOfficeStatus&quot;:0,&quot;agentLeadStatus&quot;:0}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/premium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value"> Bearer mp9c5yhjfZvuouwIsNDwxtLBTGwh7vJZC9tMo0MTMWhEL6v4bnwCnO5kqHMsKD8YNpF55N7_OaOnuVUJrCR7l1QdmCS_kvalMGcVU9EW_sMwVvypCHT4Sipv9764mv76ascffZr1pWE82GBJmWy57rD_Zpocf8IInTBEpLfoFFXEfVKbl3NbmeDkiQjP3fEtswoy0hFn7FBdwgBU3EXWf2VJISaj_6fGIFkJO74VPshWczkhDob9vMEqzULILUjXI_JSDx_IVKulGo4euGV3W6_ha84zF4V9XIMPvQXZyp67WrLQJGv4cPYYc6SB3rI02FlxxY2GtkWXYPe6vBFAui8xhIHM_Q7rrW_w66gLego3QsLUfViWmHsKVBxZ1Mi7YUk6Kwab8wLQosM38NsZAhlTQAmApfSn55uuipNpbMmy1_-BxqoVExCKcZX01qWZ</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+          <stringProp name="JSONPostProcessor.referenceNames"></stringProp>
+          <stringProp name="JSONPostProcessor.jsonPathExprs"></stringProp>
+          <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+        </JSONPostProcessor>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Same quote request for premium at same time" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Premium" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;5b855f2606a0f91f3ce5512e&quot;,&quot;quoteReferenceId&quot;:&quot;WR00013695&quot;,&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;startedDate&quot;:&quot;2018-08-28T14:41:42.388Z&quot;,&quot;updatedDate&quot;:&quot;2018-08-28T14:43:17.207Z&quot;,&quot;quoteStatusValue&quot;:5,&quot;status&quot;:2,&quot;isQuoteActive&quot;:true,&quot;ownerId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;actingUserId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;isExternal&quot;:false,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;isRenewal&quot;:false,&quot;otherName&quot;:&quot;&quot;,&quot;primaryVoluntaryExcess&quot;:0,&quot;desiredStartDate&quot;:&quot;2018-09-01T23:00:00Z&quot;,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;18&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00Z&quot;,&quot;email&quot;:&quot;fgfd@fggd.com&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Married&quot;,&quot;description&quot;:&quot;Married&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mr&quot;,&quot;description&quot;:&quot;Mr&quot;,&quot;ogiId&quot;:&quot;Mr&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;8&quot;,&quot;description&quot;:&quot;Up to 7 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:false},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07465424242&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;13&quot;,&quot;description&quot;:&quot;13 Years&quot;,&quot;dE_SEQ&quot;:12},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;dE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:2002,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false,&quot;totalVehiclesInHouseHold&quot;:&quot;2&quot;,&quot;criminalConvictionYN&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;dE_SEQ&quot;:0},&quot;policyNoClaimsBonusProtected&quot;:false,&quot;policyNoClaimsBonus&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;NCB&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:13,&quot;description&quot;:&quot;13 years&quot;,&quot;dE_SEQ&quot;:13}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;otherVehiclesAccessYN&quot;:false,&quot;propertyOwnership&quot;:false,&quot;claimDetails&quot;:[],&quot;convictionDetails&quot;:[],&quot;claimDetailsAnswered&quot;:true,&quot;convictionDetailsAnswered&quot;:true,&quot;namedDrivers&quot;:[],&quot;namedDriversAnswered&quot;:true},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{}},&quot;quoteData&quot;:{&quot;prices&quot;:[],&quot;acceptances&quot;:{&quot;acceptBestKnowledge&quot;:false,&quot;acceptCompletedHonestly&quot;:false,&quot;acceptTermsAndConditions&quot;:false,&quot;acceptExcess&quot;:false,&quot;noMarketing&quot;:false},&quot;options&quot;:[],&quot;quoteResults&quot;:[],&quot;invalidQuoteResults&quot;:[],&quot;expirationDate&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;selectedPriceIndex&quot;:0},&quot;batchRuns&quot;:[],&quot;backOfficeStatus&quot;:0,&quot;agentLeadStatus&quot;:0}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/premium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Retrieve premium header" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer mp9c5yhjfZvuouwIsNDwxtLBTGwh7vJZC9tMo0MTMWhEL6v4bnwCnO5kqHMsKD8YNpF55N7_OaOnuVUJrCR7l1QdmCS_kvalMGcVU9EW_sMwVvypCHT4Sipv9764mv76ascffZr1pWE82GBJmWy57rD_Zpocf8IInTBEpLfoFFXEfVKbl3NbmeDkiQjP3fEtswoy0hFn7FBdwgBU3EXWf2VJISaj_6fGIFkJO74VPshWczkhDob9vMEqzULILUjXI_JSDx_IVKulGo4euGV3W6_ha84zF4V9XIMPvQXZyp67WrLQJGv4cPYYc6SB3rI02FlxxY2GtkWXYPe6vBFAui8xhIHM_Q7rrW_w66gLego3QsLUfViWmHsKVBxZ1Mi7YUk6Kwab8wLQosM38NsZAhlTQAmApfSn55uuipNpbMmy1_-BxqoVExCKcZX01qWZ</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Multiple Quotes Request for premium -concurrent user" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Premium" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;5b86842006a0fa1f3cbbb7f5&quot;,&quot;quoteReferenceId&quot;:&quot;WR00017450&quot;,&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;startedDate&quot;:&quot;2018-08-28T14:41:42.388Z&quot;,&quot;updatedDate&quot;:&quot;2018-08-28T14:43:17.207Z&quot;,&quot;quoteStatusValue&quot;:5,&quot;status&quot;:2,&quot;isQuoteActive&quot;:true,&quot;ownerId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;actingUserId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;isExternal&quot;:false,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;isRenewal&quot;:false,&quot;otherName&quot;:&quot;&quot;,&quot;primaryVoluntaryExcess&quot;:0,&quot;desiredStartDate&quot;:&quot;2018-09-01T23:00:00Z&quot;,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;18&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00Z&quot;,&quot;email&quot;:&quot;fgfd@fggd.com&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Married&quot;,&quot;description&quot;:&quot;Married&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mr&quot;,&quot;description&quot;:&quot;Mr&quot;,&quot;ogiId&quot;:&quot;Mr&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;8&quot;,&quot;description&quot;:&quot;Up to 7 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:false},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07465424242&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;13&quot;,&quot;description&quot;:&quot;13 Years&quot;,&quot;dE_SEQ&quot;:12},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;dE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:2002,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false,&quot;totalVehiclesInHouseHold&quot;:&quot;2&quot;,&quot;criminalConvictionYN&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;dE_SEQ&quot;:0},&quot;policyNoClaimsBonusProtected&quot;:false,&quot;policyNoClaimsBonus&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;NCB&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:13,&quot;description&quot;:&quot;13 years&quot;,&quot;dE_SEQ&quot;:13}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;otherVehiclesAccessYN&quot;:false,&quot;propertyOwnership&quot;:false,&quot;claimDetails&quot;:[],&quot;convictionDetails&quot;:[],&quot;claimDetailsAnswered&quot;:true,&quot;convictionDetailsAnswered&quot;:true,&quot;namedDrivers&quot;:[],&quot;namedDriversAnswered&quot;:true},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{}},&quot;quoteData&quot;:{&quot;prices&quot;:[],&quot;acceptances&quot;:{&quot;acceptBestKnowledge&quot;:false,&quot;acceptCompletedHonestly&quot;:false,&quot;acceptTermsAndConditions&quot;:false,&quot;acceptExcess&quot;:false,&quot;noMarketing&quot;:false},&quot;options&quot;:[],&quot;quoteResults&quot;:[],&quot;invalidQuoteResults&quot;:[],&quot;expirationDate&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;selectedPriceIndex&quot;:0},&quot;batchRuns&quot;:[],&quot;backOfficeStatus&quot;:0,&quot;agentLeadStatus&quot;:0}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/premium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer JLCtQxchD04Kx_NsuD84VueB7yvGb2m09ZeNuWZ5lPv0NjUD-HCjv4KBwlVZZhkwVDoDUDBF9yPPVh1Ss90T3gK47DZ-kNN65yJGUCPY7vjWUkDnyrYLLUBEGe-sbFOV7hMR-WLQtS1luiFJgMKRnJWfC_Rs2A2jKRG4FFh-cJH33_1fm6-owyJHRKkAPGA7c8xJXoJOLRtPrOQCAjRzuQS9wza8c-dAB37aHWfEMG_SpaXHy5sI3sY5lP2pyKqExyfsSpg7zeIYIATd1uSHrsQPBk_u0lsaPRQEFxqhnYrV72QNeGw7hpTfu7UdrrTI0F5SAjJFwjQXzlPr5ozfDSU94FjEYCak-Ta5QwHrPk_YoP0pRNaVoXPj3zjcbh0o</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\TestData\Data.csv</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames"></stringProp>
+        </CSVDataSet>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get Premium- concurrent user " enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Create Quote Loop Controller" enabled="false">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Quote" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;primaryVoluntaryExcess&quot;:0,&quot;isRenewal&quot;:false,&quot;isMta&quot;:false,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;18&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1986-11-19T00:00:00Z&quot;,&quot;email&quot;:&quot;fgfd@fggd.com&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;test&quot;,&quot;lastName&quot;:&quot;test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Married&quot;,&quot;description&quot;:&quot;Married&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mr&quot;,&quot;description&quot;:&quot;Mr&quot;,&quot;ogiId&quot;:&quot;Mr&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;8&quot;,&quot;description&quot;:&quot;Up to 7 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:false},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07465424242&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;13&quot;,&quot;description&quot;:&quot;13 Years&quot;,&quot;dE_SEQ&quot;:12},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;DM_PRODUCT&quot;:&quot;MV&quot;,&quot;DM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;DE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;DE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:2002,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;DM_PRODUCT&quot;:&quot;MV&quot;,&quot;DM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;DE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;DE_SEQ&quot;:0}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;}},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{},&quot;additionalDirectDebitDetails&quot;:{},&quot;editMode&quot;:true,&quot;relationship&quot;:null,&quot;otherName&quot;:&quot;&quot;,&quot;desiredStartDate&quot;:&quot;2018-09-02T00:00:00+01:00&quot;}}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/quote</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+              <boolProp name="ResultCollector.error_logging">false</boolProp>
+              <objProp>
+                <name>saveConfig</name>
+                <value class="SampleSaveConfiguration">
+                  <time>true</time>
+                  <latency>true</latency>
+                  <timestamp>true</timestamp>
+                  <success>true</success>
+                  <label>true</label>
+                  <code>true</code>
+                  <message>true</message>
+                  <threadName>true</threadName>
+                  <dataType>true</dataType>
+                  <encoding>false</encoding>
+                  <assertions>true</assertions>
+                  <subresults>true</subresults>
+                  <responseData>false</responseData>
+                  <samplerData>false</samplerData>
+                  <xml>false</xml>
+                  <fieldNames>true</fieldNames>
+                  <responseHeaders>false</responseHeaders>
+                  <requestHeaders>false</requestHeaders>
+                  <responseDataOnError>false</responseDataOnError>
+                  <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                  <assertionsResultsToSave>0</assertionsResultsToSave>
+                  <bytes>true</bytes>
+                  <sentBytes>true</sentBytes>
+                  <threadCounts>true</threadCounts>
+                  <idleTime>true</idleTime>
+                  <connectTime>true</connectTime>
+                </value>
+              </objProp>
+              <stringProp name="filename"></stringProp>
+            </ResultCollector>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="QuoteResponse Acess token  Json Extractor" enabled="true">
+              <stringProp name="VAR">access_token</stringProp>
+              <stringProp name="JSONPATH">$..access_token</stringProp>
+              <stringProp name="DEFAULT">access_token not found</stringProp>
+              <stringProp name="VARIABLE"></stringProp>
+              <stringProp name="SUBJECT">BODY</stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="QuoteResponse quoteReferenceId Json Extractor" enabled="true">
+              <stringProp name="VAR">quoteReferenceId</stringProp>
+              <stringProp name="JSONPATH">$..quoteReferenceId</stringProp>
+              <stringProp name="DEFAULT">quoteReferenceId not found</stringProp>
+              <stringProp name="VARIABLE"></stringProp>
+              <stringProp name="SUBJECT">BODY</stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="QuoteResponse ID Json Extractor" enabled="true">
+              <stringProp name="VAR">id</stringProp>
+              <stringProp name="JSONPATH">$..id</stringProp>
+              <stringProp name="DEFAULT">Id not found</stringProp>
+              <stringProp name="VARIABLE"></stringProp>
+              <stringProp name="SUBJECT">BODY</stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script">import java.io.File;
+//import java.io.FileWriter;
+import org.apache.jmeter.services.FileServer;
+
+id = vars.get(&quot;id&quot;);
+id=id.substring(2);
+id=id.substring(0, id.length() - 2);
+
+quoteReferenceId = vars.get(&quot;quoteReferenceId&quot;);
+quoteReferenceId=quoteReferenceId.substring(2);
+quoteReferenceId=quoteReferenceId.substring(0, quoteReferenceId.length() - 2);
+
+access_token=vars.get(&quot;access_token&quot;);
+access_token=access_token.substring(2);
+access_token=access_token.substring(0, access_token.length() - 2);
+
+
+log.info(&quot;##################################### - &quot; + id);  // if you want to log something to jmeter.log file
+log.info(&quot;#####################################- &quot; +quoteReferenceId);
+log.info(&quot;#########################################  -  &quot; + access_token);
+// Pass true if you want to append to existing file
+// If you want to overwrite, then don&apos;t pass the second argument
+f = new FileOutputStream(&quot;C:/Users/Tuely/Desktop/WriskCreateQuote/ResultDashboard/TestData/Referance.csv&quot;, true);
+p = new PrintStream(f); 
+this.interpreter.setOut(p); 
+print(id + &quot;,&quot; + quoteReferenceId+ &quot;,&quot; + access_token);
+f.close();
+
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Premium" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;${id}&quot;,&quot;quoteReferenceId&quot;:&quot;${quoteReferenceId}&quot;,&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;startedDate&quot;:&quot;2018-09-03T10:26:32.253Z&quot;,&quot;updatedDate&quot;:&quot;2018-09-03T10:27:14.772Z&quot;,&quot;quoteStatusValue&quot;:5,&quot;status&quot;:2,&quot;isQuoteActive&quot;:true,&quot;ownerId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;actingUserId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;isExternal&quot;:false,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;isRenewal&quot;:false,&quot;otherName&quot;:&quot;&quot;,&quot;primaryVoluntaryExcess&quot;:0,&quot;desiredStartDate&quot;:&quot;2018-09-03T10:26:29Z&quot;,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;9&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1998-09-12T00:00:00Z&quot;,&quot;email&quot;:&quot;tuley.saseendran@hughub.co.uk&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;Test&quot;,&quot;lastName&quot;:&quot;Test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Divorced&quot;,&quot;description&quot;:&quot;Divorced&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mrs&quot;,&quot;description&quot;:&quot;Mrs&quot;,&quot;ogiId&quot;:&quot;Mrs&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;6&quot;,&quot;description&quot;:&quot;Up to 5 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:true},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07111111111&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;15&quot;,&quot;description&quot;:&quot;15 Years&quot;,&quot;dE_SEQ&quot;:10},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;dE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:&quot;2002&quot;,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;totalVehiclesInHouseHold&quot;:&quot;2&quot;,&quot;criminalConvictionYN&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;dE_SEQ&quot;:0},&quot;policyNoClaimsBonusProtected&quot;:false,&quot;policyNoClaimsBonus&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;NCB&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:10,&quot;description&quot;:&quot;10 years&quot;,&quot;dE_SEQ&quot;:10}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;otherVehiclesAccessYN&quot;:false,&quot;propertyOwnership&quot;:false,&quot;claimDetails&quot;:[],&quot;convictionDetails&quot;:[],&quot;claimDetailsAnswered&quot;:true,&quot;convictionDetailsAnswered&quot;:true,&quot;namedDrivers&quot;:[],&quot;namedDriversAnswered&quot;:true},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{}},&quot;quoteData&quot;:{&quot;prices&quot;:[],&quot;acceptances&quot;:{&quot;acceptBestKnowledge&quot;:false,&quot;acceptCompletedHonestly&quot;:false,&quot;acceptTermsAndConditions&quot;:false,&quot;acceptExcess&quot;:false,&quot;noMarketing&quot;:false},&quot;options&quot;:[],&quot;quoteResults&quot;:[],&quot;invalidQuoteResults&quot;:[],&quot;expirationDate&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;selectedPriceIndex&quot;:0},&quot;batchRuns&quot;:[],&quot;backOfficeStatus&quot;:0,&quot;agentLeadStatus&quot;:0}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/premium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+            <boolProp name="clearEachIteration">true</boolProp>
+            <boolProp name="useExpires">true</boolProp>
+          </CacheManager>
+          <hashTree/>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+            <collectionProp name="CookieManager.cookies"/>
+            <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          </CookieManager>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Created Quote Data Csv" enabled="true">
+            <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\TestData\Referance.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="IP Config CSV" enabled="false">
+            <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\TestData\IpAddress.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1947368753"> &quot;ErrorText&quot;: &quot;No quotes were found for the given details&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.io.File;
+//import java.io.FileWriter;
+import org.apache.jmeter.services.FileServer;
+
+SourceIP = vars.get(&quot;SourceIP&quot;);
+
+
+log.info(&quot;#########################################  -  &quot; + SourceIP);
+// Pass true if you want to append to existing file
+// If you want to overwrite, then don&apos;t pass the second argument
+//f = new FileOutputStream(&quot;C:/Users/Tuely/Desktop/WriskCreateQuote/ResultDashboard/TestData/IpAddress.csv&quot;, true);
+///p = new PrintStream(f); 
+//this.interpreter.setOut(p); 
+//print(IpAddress);
+//f.close();
+
+</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1428152630">Response message: OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-395310074">Response message: Bad Request</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
+            <stringProp name="BeanShellAssertion.query">if (ResponseCode.equals(&quot;400&quot;) == true) { 
+    SampleResult.setResponseOK();  
+}</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+          <kg.apc.jmeter.listener.GraphsGeneratorListener guiclass="TestBeanGUI" testclass="kg.apc.jmeter.listener.GraphsGeneratorListener" testname="Previous Test  Graphs Generator" enabled="false">
+            <stringProp name="outputBaseFolder">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results</stringProp>
+            <stringProp name="resultsFileName">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results\results.csv</stringProp>
+            <intProp name="exportMode">2</intProp>
+            <stringProp name="filePrefix">Get Premium Graph Genrate For _ </stringProp>
+            <intProp name="graphWidth">800</intProp>
+            <intProp name="graphHeight">600</intProp>
+            <stringProp name="paintMarkers">Undefined</stringProp>
+            <boolProp name="paintZeroing">true</boolProp>
+            <boolProp name="paintGradient">true</boolProp>
+            <boolProp name="preventOutliers">false</boolProp>
+            <boolProp name="relativeTimes">false</boolProp>
+            <boolProp name="autoScaleRows">false</boolProp>
+            <stringProp name="limitRows">150</stringProp>
+            <stringProp name="forceY"></stringProp>
+            <stringProp name="granulation">1000</stringProp>
+            <stringProp name="lineWeight"></stringProp>
+            <boolProp name="aggregateRows">false</boolProp>
+            <stringProp name="lowCountLimit"></stringProp>
+            <stringProp name="successFilter"></stringProp>
+            <boolProp name="includeSamplesWithRegex">false</boolProp>
+            <stringProp name="includeLabels"></stringProp>
+            <boolProp name="excludeSamplesWithRegex">false</boolProp>
+            <stringProp name="excludeLabels"></stringProp>
+            <stringProp name="startOffset"></stringProp>
+            <stringProp name="endOffset"></stringProp>
+          </kg.apc.jmeter.listener.GraphsGeneratorListener>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results\results.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <kg.apc.jmeter.listener.GraphsGeneratorListener guiclass="TestBeanGUI" testclass="kg.apc.jmeter.listener.GraphsGeneratorListener" testname="Load Test Graph  Result" enabled="false">
+          <boolProp name="aggregateRows">false</boolProp>
+          <boolProp name="autoScaleRows">false</boolProp>
+          <stringProp name="endOffset"></stringProp>
+          <stringProp name="excludeLabels"></stringProp>
+          <boolProp name="excludeSamplesWithRegex">false</boolProp>
+          <intProp name="exportMode">2</intProp>
+          <stringProp name="filePrefix">Graph_</stringProp>
+          <stringProp name="forceY"></stringProp>
+          <stringProp name="granulation">1000</stringProp>
+          <intProp name="graphHeight">600</intProp>
+          <intProp name="graphWidth">800</intProp>
+          <stringProp name="includeLabels"></stringProp>
+          <boolProp name="includeSamplesWithRegex">false</boolProp>
+          <stringProp name="limitRows">150</stringProp>
+          <stringProp name="lineWeight"></stringProp>
+          <stringProp name="lowCountLimit"></stringProp>
+          <stringProp name="outputBaseFolder">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results</stringProp>
+          <boolProp name="paintGradient">true</boolProp>
+          <boolProp name="paintZeroing">true</boolProp>
+          <boolProp name="preventOutliers">false</boolProp>
+          <boolProp name="relativeTimes">false</boolProp>
+          <stringProp name="resultsFileName">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results\results.csv</stringProp>
+          <stringProp name="startOffset"></stringProp>
+          <stringProp name="successFilter"></stringProp>
+        </kg.apc.jmeter.listener.GraphsGeneratorListener>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Graph generator Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <kg.apc.jmeter.listener.GraphsGeneratorListener guiclass="TestBeanGUI" testclass="kg.apc.jmeter.listener.GraphsGeneratorListener" testname="Previous Test  Graphs Generator" enabled="true">
+          <stringProp name="outputBaseFolder">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results</stringProp>
+          <stringProp name="resultsFileName">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\Results\results.csv</stringProp>
+          <intProp name="exportMode">2</intProp>
+          <stringProp name="filePrefix">Graph Genrate For _ </stringProp>
+          <intProp name="graphWidth">800</intProp>
+          <intProp name="graphHeight">600</intProp>
+          <stringProp name="paintMarkers">Undefined</stringProp>
+          <boolProp name="paintZeroing">true</boolProp>
+          <boolProp name="paintGradient">true</boolProp>
+          <boolProp name="preventOutliers">false</boolProp>
+          <boolProp name="relativeTimes">false</boolProp>
+          <boolProp name="autoScaleRows">false</boolProp>
+          <stringProp name="limitRows">150</stringProp>
+          <stringProp name="forceY"></stringProp>
+          <stringProp name="granulation">1000</stringProp>
+          <stringProp name="lineWeight"></stringProp>
+          <boolProp name="aggregateRows">false</boolProp>
+          <stringProp name="lowCountLimit"></stringProp>
+          <stringProp name="successFilter"></stringProp>
+          <boolProp name="includeSamplesWithRegex">false</boolProp>
+          <stringProp name="includeLabels"></stringProp>
+          <boolProp name="excludeSamplesWithRegex">false</boolProp>
+          <stringProp name="excludeLabels"></stringProp>
+          <stringProp name="startOffset"></stringProp>
+          <stringProp name="endOffset"></stringProp>
+        </kg.apc.jmeter.listener.GraphsGeneratorListener>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.SteppingThreadGroup guiclass="kg.apc.jmeter.threads.SteppingThreadGroupGui" testclass="kg.apc.jmeter.threads.SteppingThreadGroup" testname="Stepping Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="Threads initial delay">10</stringProp>
+        <stringProp name="Start users count">10</stringProp>
+        <stringProp name="Start users count burst">10</stringProp>
+        <stringProp name="Start users period">10</stringProp>
+        <stringProp name="Stop users count">5</stringProp>
+        <stringProp name="Stop users period">10</stringProp>
+        <stringProp name="flighttime">60</stringProp>
+        <stringProp name="rampUp">0</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+      </kg.apc.jmeter.threads.SteppingThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Premium" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;id&quot;:&quot;${id}&quot;,&quot;quoteReferenceId&quot;:&quot;${quoteReferenceId}&quot;,&quot;productType&quot;:&quot;CarWrisk&quot;,&quot;startedDate&quot;:&quot;2018-09-03T10:26:32.253Z&quot;,&quot;updatedDate&quot;:&quot;2018-09-03T10:27:14.772Z&quot;,&quot;quoteStatusValue&quot;:5,&quot;status&quot;:2,&quot;isQuoteActive&quot;:true,&quot;ownerId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;actingUserId&quot;:&quot;5b72a00c06a0ee1f3cd2e0f2&quot;,&quot;isExternal&quot;:false,&quot;modelData&quot;:{&quot;isThisQuoteForYou&quot;:true,&quot;isRenewal&quot;:false,&quot;otherName&quot;:&quot;&quot;,&quot;primaryVoluntaryExcess&quot;:0,&quot;desiredStartDate&quot;:&quot;2018-09-03T10:26:29Z&quot;,&quot;personalDetails&quot;:{&quot;address&quot;:{&quot;houseNoOrName&quot;:&quot;9&quot;,&quot;address1&quot;:&quot;Wanstead Close&quot;,&quot;address2&quot;:&quot;Bromley&quot;,&quot;address3&quot;:&quot;&quot;,&quot;address4&quot;:&quot;Kent&quot;,&quot;postcode&quot;:&quot;BR1 3BN&quot;},&quot;dateOfBirth&quot;:&quot;1998-09-12T00:00:00Z&quot;,&quot;email&quot;:&quot;tuley.saseendran@hughub.co.uk&quot;,&quot;employmentType&quot;:{&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Retired&quot;},&quot;firstName&quot;:&quot;Test&quot;,&quot;lastName&quot;:&quot;Test&quot;,&quot;maritalStatus&quot;:{&quot;entryId&quot;:&quot;Divorced&quot;,&quot;description&quot;:&quot;Divorced&quot;},&quot;propertyOwnership&quot;:false,&quot;secondJob&quot;:false,&quot;title&quot;:{&quot;entryId&quot;:&quot;Mrs&quot;,&quot;description&quot;:&quot;Mrs&quot;,&quot;ogiId&quot;:&quot;Mrs&quot;,&quot;codeList&quot;:&quot;Title&quot;,&quot;ogiCodeList&quot;:&quot;uQRTL&quot;},&quot;residency&quot;:{&quot;entryId&quot;:&quot;6&quot;,&quot;description&quot;:&quot;Up to 5 years&quot;,&quot;ogiId&quot;:&quot;&quot;,&quot;codeList&quot;:&quot;Residency&quot;,&quot;ogiCodeList&quot;:&quot;&quot;},&quot;communicationSettings&quot;:{&quot;byEmail&quot;:true},&quot;marketingSettings&quot;:{},&quot;phones&quot;:[{&quot;phone&quot;:&quot;07111111111&quot;}],&quot;isMainApplicant&quot;:false,&quot;additionalPersonalDetails&quot;:{&quot;drivingLicence&quot;:{&quot;entryId&quot;:&quot;F&quot;,&quot;description&quot;:&quot;Full UK Car Licence&quot;},&quot;drivingLicenceYear&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;DL&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;15&quot;,&quot;description&quot;:&quot;15 Years&quot;,&quot;dE_SEQ&quot;:10},&quot;medicalConditionsYN&quot;:false,&quot;advisedNotToDriveYN&quot;:false,&quot;referrer&quot;:{&quot;entryId&quot;:2,&quot;description&quot;:&quot;Email&quot;},&quot;agreementNoCCJsYN&quot;:false,&quot;agreementBankruptcyYN&quot;:false,&quot;agreementRefusedOrCancelledYN&quot;:false},&quot;legalAgreements&quot;:{}},&quot;productData&quot;:{&quot;lifeInsuranceType&quot;:{&quot;entryId&quot;:0,&quot;description&quot;:&quot;Level term&quot;},&quot;lifeInsurancePremium&quot;:20,&quot;lifeInsuranceCoverage&quot;:100000,&quot;lengthOfCoverage&quot;:20,&quot;additionalCarDetails&quot;:{&quot;claimsCost&quot;:0,&quot;claimsThirdPartyCost&quot;:0,&quot;carRegistrationYN&quot;:true,&quot;vehicleLookupInfo&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;description2&quot;:&quot;3 SERIES&quot;,&quot;fuelType&quot;:&quot;PETROL&quot;,&quot;transmission&quot;:&quot;MANUAL&quot;,&quot;description3&quot;:&quot;2002&quot;,&quot;displayName&quot;:&quot;BMW 3 SERIES 2002 PETROL&quot;,&quot;value&quot;:23,&quot;entryId&quot;:&quot;23&quot;,&quot;code&quot;:&quot;23&quot;},&quot;whichHandDrive&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;WhichHandDrive&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;R&quot;,&quot;description&quot;:&quot;Right&quot;,&quot;dE_SEQ&quot;:1},&quot;vehicleBoughtYN&quot;:false,&quot;legalOwnerYN&quot;:true,&quot;registeredKeeperYesNo&quot;:true,&quot;vehicleTracker&quot;:false,&quot;vehicleManufacturer&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;vehicleModel&quot;:{&quot;description&quot;:&quot;3 SERIES&quot;,&quot;entryId&quot;:&quot;3 SERIES&quot;},&quot;yearFromTo&quot;:&quot;2002&quot;,&quot;doors&quot;:3,&quot;vehicleManufacturedYear&quot;:&quot;2002&quot;,&quot;vehicleImported&quot;:{},&quot;vehicleFuel&quot;:{&quot;description&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;&quot;},&quot;vehicleTransmission&quot;:{&quot;description&quot;:&quot;MANUAL&quot;,&quot;entryId&quot;:&quot;MANUAL&quot;},&quot;totalVehiclesInHouseHold&quot;:&quot;2&quot;,&quot;criminalConvictionYN&quot;:false},&quot;commercial&quot;:{&quot;isErnExemptYN&quot;:true},&quot;carRegistration&quot;:&quot;FH51BHV&quot;,&quot;carModificationDetails&quot;:[],&quot;carValue&quot;:2000,&quot;carModificationDetailsAnswered&quot;:true,&quot;milesPerYear&quot;:&quot;2000&quot;,&quot;additionalPolicyDetails&quot;:{&quot;policyDriverUsage&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;Usage&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:&quot;SDP&quot;,&quot;description&quot;:&quot;Social, domestic and pleasure only&quot;,&quot;dE_SEQ&quot;:0},&quot;policyNoClaimsBonusProtected&quot;:false,&quot;policyNoClaimsBonus&quot;:{&quot;dM_PRODUCT&quot;:&quot;MV&quot;,&quot;dM_ENUMERATION&quot;:&quot;NCB&quot;,&quot;dE_SUBTYPE&quot;:&quot;&quot;,&quot;entryId&quot;:10,&quot;description&quot;:&quot;10 years&quot;,&quot;dE_SEQ&quot;:10}},&quot;overnightParking&quot;:{&quot;entryId&quot;:&quot;On_The_Road&quot;,&quot;description&quot;:&quot;On the road&quot;},&quot;instanceId&quot;:{&quot;description&quot;:&quot;BMW&quot;,&quot;entryId&quot;:&quot;BMW&quot;},&quot;otherVehiclesAccessYN&quot;:false,&quot;propertyOwnership&quot;:false,&quot;claimDetails&quot;:[],&quot;convictionDetails&quot;:[],&quot;claimDetailsAnswered&quot;:true,&quot;convictionDetailsAnswered&quot;:true,&quot;namedDrivers&quot;:[],&quot;namedDriversAnswered&quot;:true},&quot;extraData&quot;:{},&quot;cancellationData&quot;:{}},&quot;quoteData&quot;:{&quot;prices&quot;:[],&quot;acceptances&quot;:{&quot;acceptBestKnowledge&quot;:false,&quot;acceptCompletedHonestly&quot;:false,&quot;acceptTermsAndConditions&quot;:false,&quot;acceptExcess&quot;:false,&quot;noMarketing&quot;:false},&quot;options&quot;:[],&quot;quoteResults&quot;:[],&quot;invalidQuoteResults&quot;:[],&quot;expirationDate&quot;:&quot;0001-01-01T00:00:00Z&quot;,&quot;selectedPriceIndex&quot;:0},&quot;batchRuns&quot;:[],&quot;backOfficeStatus&quot;:0,&quot;agentLeadStatus&quot;:0}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">hugapi-wrisktest.azurewebsites.net</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/premium</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+            <boolProp name="clearEachIteration">true</boolProp>
+            <boolProp name="useExpires">true</boolProp>
+          </CacheManager>
+          <hashTree/>
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+            <collectionProp name="CookieManager.cookies"/>
+            <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+          </CookieManager>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${access_token}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Created Quote Data Csv" enabled="true">
+            <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\TestData\Referance.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+            <boolProp name="ResultCollector.error_logging">false</boolProp>
+            <objProp>
+              <name>saveConfig</name>
+              <value class="SampleSaveConfiguration">
+                <time>true</time>
+                <latency>true</latency>
+                <timestamp>true</timestamp>
+                <success>true</success>
+                <label>true</label>
+                <code>true</code>
+                <message>true</message>
+                <threadName>true</threadName>
+                <dataType>true</dataType>
+                <encoding>false</encoding>
+                <assertions>true</assertions>
+                <subresults>true</subresults>
+                <responseData>false</responseData>
+                <samplerData>false</samplerData>
+                <xml>false</xml>
+                <fieldNames>true</fieldNames>
+                <responseHeaders>false</responseHeaders>
+                <requestHeaders>false</requestHeaders>
+                <responseDataOnError>false</responseDataOnError>
+                <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+                <assertionsResultsToSave>0</assertionsResultsToSave>
+                <bytes>true</bytes>
+                <sentBytes>true</sentBytes>
+                <threadCounts>true</threadCounts>
+                <idleTime>true</idleTime>
+                <connectTime>true</connectTime>
+              </value>
+            </objProp>
+            <stringProp name="filename"></stringProp>
+          </ResultCollector>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="IP Config CSV" enabled="false">
+            <stringProp name="filename">C:\Users\Tuely\Desktop\WriskCreateQuote\ResultDashboard\TestData\IpAddress.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1947368753"> &quot;ErrorText&quot;: &quot;No quotes were found for the given details&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">import java.io.File;
+//import java.io.FileWriter;
+import org.apache.jmeter.services.FileServer;
+
+SourceIP = vars.get(&quot;SourceIP&quot;);
+
+
+log.info(&quot;#########################################  -  &quot; + SourceIP);
+// Pass true if you want to append to existing file
+// If you want to overwrite, then don&apos;t pass the second argument
+//f = new FileOutputStream(&quot;C:/Users/Tuely/Desktop/WriskCreateQuote/ResultDashboard/TestData/IpAddress.csv&quot;, true);
+///p = new PrintStream(f); 
+//this.interpreter.setOut(p); 
+//print(IpAddress);
+//f.close();
+
+</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1428152630">Response message: OK</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-395310074">Response message: Bad Request</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell Assertion" enabled="false">
+            <stringProp name="BeanShellAssertion.query">if (ResponseCode.equals(&quot;400&quot;) == true) { 
+    SampleResult.setResponseOK();  
+}</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
